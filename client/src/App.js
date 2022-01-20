@@ -7,6 +7,7 @@ import AppNavbar from "./components/Route/AppNavbar";
 import Home from "./components/Pages/Home";
 import Dashboard from "./components/Pages/Dashboard";
 import PrivateRoute from "./components/privateRoute.js/PrivateRoute";
+import NotFound404 from "./components/Pages/NotFound404";
 
 
 function App() {
@@ -27,7 +28,7 @@ function App() {
      <Route path="/dashboard" element={
        <PrivateRoute><Dashboard /></PrivateRoute>
      } />
-     
+     <Route path="*" element={<NotFound404 />} />
  
    </Routes>
    
