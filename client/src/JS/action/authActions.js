@@ -18,11 +18,27 @@ export const registerUser = (formdata)=>async(dispatch)=>{
         console.dir(error)
         const {errors,msg} = error.response.data;
         if(Array.isArray(errors)){
-            errors.forEach((err)=>toast(err.msg))
+            errors.forEach((err)=>toast.error(err.msg, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                }))
             
         }
         if(msg){
-            toast(msg)
+            toast.error(msg, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                })
         }
 
         dispatch({type:AUTH_ERRORS})
