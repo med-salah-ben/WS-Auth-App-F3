@@ -1,13 +1,14 @@
 import { useSelector } from 'react-redux';
-import NotAuth from '../Pages/NotAuth';
+import {Navigate} from "react-router-dom"
 
 
 
 const PrivateRoute = ({children}) => {
+  // const navigate =useNavigate()
     const isAuth = useSelector(state=>state.authReducer.isAuth);
   return (
       <>
-         {isAuth ? children : <NotAuth />}
+         {isAuth ? children :< Navigate to="/" />}
       </>
   )
 }

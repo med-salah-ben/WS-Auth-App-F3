@@ -1,4 +1,7 @@
 import axios from "axios";
+import {  toast } from 'react-toastify';
+
+
 
 import { LOGIN_USER,REGISTER_USER,LOGOUT_USER,GET_AUTH_USER,USER_LOADING,AUTH_ERRORS } from "../constant/actions-types";
 
@@ -15,10 +18,11 @@ export const registerUser = (formdata)=>async(dispatch)=>{
         console.dir(error)
         const {errors,msg} = error.response.data;
         if(Array.isArray(errors)){
-            errors.forEach((err)=>alert(err.msg))
+            errors.forEach((err)=>toast(err.msg))
+            
         }
         if(msg){
-            alert(msg)
+            toast(msg)
         }
 
         dispatch({type:AUTH_ERRORS})
@@ -36,10 +40,26 @@ export const loginUser = (formdata)=>async(dispatch)=>{
         console.dir(error)
         const {errors,msg} = error.response.data ;
         if(Array.isArray(errors)){
-            errors.forEach((err)=>alert(err.msg))
+            errors.forEach((err)=>toast.error(err.msg, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                }))
         }
         if(msg){
-           alert(msg)
+           toast.error(msg, {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            })
            
         }
         

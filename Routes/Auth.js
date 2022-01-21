@@ -77,6 +77,7 @@ router.post("/login",loginRules(),validator,async(req,res)=>{
     }
 })
 
+
 //private routes 
 router.get('/user',isAuth,(req,res)=>{
     res.status(200).send({user:req.user})

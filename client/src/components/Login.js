@@ -22,6 +22,7 @@ const Register = () => {
       setEmail("");
       setPassword("");
     }
+    
   
     return (
       <>
